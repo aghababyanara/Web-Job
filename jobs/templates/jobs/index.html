@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+
+    <header>
+    </header>
+
+    {% include "jobs/includes/categories.html" %}
+
+    <main>
+        <h2>Latest Publications</h2>
+        <ul>
+                {% for post in posts %}
+                {% if post.is_published %}
+                    <li>
+                        <h2>{{post.title}}</h2>>
+                        <p>{{post.content}}</p>
+                        <a href="{% url 'posts' post.id %}"> Read more </a>
+                        {% if not forloop.last %}
+                        <hr>
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+    </main>
+    {% include "jobs/includes/categories.html" %}
+
+
+{% endblock %}
