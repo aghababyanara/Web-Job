@@ -363,7 +363,8 @@ template {
     border-bottom-style: groove;
     border-radius:30px;
     border-bottom-width: 4px;
-    border-color:blue;
+    border-color:cyan;
+    box-shadow: 0px 0px 8px cyan, 0px 0px 8px cyan inset;
     background:white;
     margin-bottom:20 px;
     .container{
@@ -403,3 +404,52 @@ template {
         }
     }
 }
+
+.main_div {
+        h2{
+            font-size:4em;
+            text-align: center;
+            margin:5px;
+        }
+        .latest_articles{
+            justify-content: space-evenly;
+            display:flex;
+            flex-wrap:wrap;
+            align-content: flex-start;
+
+        }
+}
+
+.footer{
+    border-top-style: groove;
+    border-top-width: 4px;
+    border-color:cyan;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    color:#black;
+    text-align: center;
+    padding: 10px;
+    display:flex;
+    justify-content: space-evenly;
+    .col_1 {
+        a {
+            text-decoration:none;
+            color:black;
+        }
+    }
+    .col_2, .col_3{
+        a{
+            display:block;
+            text-decoration:none;
+            margin-bottom:10px;
+            color:#696969;
+        }
+
+    }
+
+
+}
+

@@ -1,31 +1,18 @@
 {% extends "base.html" %}
-{% block title %}{{ title }}{% endblock %}
-{% block content %}
 
-    <header>
-    </header>
 
-    {% include "jobs/includes/categories.html" %}
+{% block latest_publication %}
+    <div class="latest_publications">
+        <h2>Publications</h2>
 
-    <main>
-        <h2>Latest Publications</h2>
-        <ul>
-                {% for post in posts %}
-                {% if post.is_published %}
-                    <li>
-                        <h2>{{post.title}}</h2>>
-                        <p>{{post.content}}</p>
-                        <a href="{% url 'posts' post.id %}"> Read more </a>
-                        {% if not forloop.last %}
-                        <hr>
-                        {% endif %}
-                    </li>
-                {% endif %}
+        <div class="latest_articles">
+            {%for publication in publications %}
+                <div>
+                    <h3>{{publication.title}}</h3>
+                    <p>{{publication.content|truncatewords:5}}</p>
+                    <a href="{{ publication.get_url }}">READ</a>
+                </div>
             {% endfor %}
-        </ul>
-
-    </main>
-    {% include "jobs/includes/categories.html" %}
-
-
+        </div>
+    </div>
 {% endblock %}

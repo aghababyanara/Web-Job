@@ -26,9 +26,34 @@
         </div>
     </nav>
 
-    <div>
-        {% block content %} {% endblock %}
+    <div class="main_div">
+        {% block publication %} {% endblock %}
+        {% block latest_publication %} {% endblock %}
+
     </div>
+
+     <div class="footer">
+         <div class="col_1">
+             <h1><a href="{% url 'index' %}">Jobs</a></h1>
+             <p>This site is made for educational purposes</p>
+         </div>
+         <div class="col_2">
+             <h3>ABOUT US</h3>
+             <a href="">About us</a>
+             <a href="">Contact us</a>
+             <a href="">Terms</a>
+         </div>
+         <div class="col_3">
+             <h3>WHAT WE HAVE</h3>
+             <a href="">All Jobs</a>
+             <a href="">All Companies</a>
+             <a href="">Registration</a>
+         </div>
+         <div class="col_3">
+             <h3>Contact</h3>
+             <p>Jobs.com<br>Erevan 2025</p>
+         </div>
+     </div>
 
     <script src="{% static 'jobs/js/script.js' %}"></script>
 </body>
