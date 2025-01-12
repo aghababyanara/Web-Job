@@ -11,11 +11,11 @@ class Publication(models.Model):
         PUBLISHED=1, "Published"
     title=models.CharField(max_length=255)
     slug=models.SlugField(max_length=255, unique=True, db_index=True, null=True)
-    # company=models.TextField()
     content=models.TextField()
     time_create=models.DateTimeField(auto_now_add=True)
     time_update=models.DateTimeField(auto_now=True)
     published=models.BooleanField(choices=Status.choices, default=Status.PUBLISHED)
+    company = models.ForeignKey("Company", on_delete=models.CASCADE)
 
     objects=models.Manager()
     is_published=PublicationManager()
@@ -32,6 +32,15 @@ class Publication(models.Model):
             models.Index(fields=["-time_create"])
         ]
 
+
+class Company(models.Model):
+    name = models.CharField(max_length=255, db_index=True)
+    slug = models.SlugField(max_length=255, unique=True, db_index=True)
+    location = models.CharField(max_length=255, blank=True, null=True)
+    website = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
 
 
 
